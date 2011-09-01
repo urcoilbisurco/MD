@@ -11,7 +11,7 @@
 		
 		<script>
 		$(document).ready(function() {
-			
+			/*
 			var textarea = $('#textarea');		
 
 			
@@ -19,7 +19,7 @@
 				var msg = textarea.attr('value');
 			  	$.ajax({
 				    type: 'POST',
-				    url: 'http://sharp-night-306.herokuapp.com/try',
+				    url: 'http://localhost:4000/try',
 					dataType: "jsonp",
 					jsonpCallback: "_testcb",
 				    data: { 
@@ -34,7 +34,7 @@
 
 				});
 			});
-			/*
+			*/
 			 // When using more than one `textarea` on your page, change the following line to match the one you’re after
 			 var $textarea = $('#textarea'),
 			     $preview = $('#test'),
@@ -46,7 +46,7 @@
 			  $preview.html(html);
 			 // $code.text(html);
 			 }).trigger('keyup');
-	*/
+	
 			
 		});
 		</script>
