@@ -11,6 +11,7 @@ app.use(express.bodyParser());
 app.set('view options', {
   layout: false
 });
+app.use(express.static(__dirname + '/public'));
 
 app.post('/try', function(req, res){
 		if (req.body.content == null){
@@ -18,7 +19,7 @@ app.post('/try', function(req, res){
 		}
 		string=md(req.body.content);
 		console.log(string);
-	res.end('_testcb(\''+ string + '\')');
+	res.end('_testcb(\''+ string.replace(/\n/g, "\\n").replace(/'/g, "&apos;") + '\')');
 
 });
 
