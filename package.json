@@ -4,6 +4,7 @@
   "dependencies": {
     "express": ">= 0.0.1",
 	"ejs":">= 0.0.1",
-	"node-markdown":">= 0.0.1"
+	"node-markdown":">= 0.0.1",
+	"redis":">= 0.0.1"
   }
 }

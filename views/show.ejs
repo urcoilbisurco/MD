@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap-1.1.1.min.css">
+		<link rel="stylesheet" href="main.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+		<script src="showdown.js" type="text/javascript"></script>
+	</head>
+	<body>
+		
+		<script>
+		$(document).ready(function() {
+			
+			 // When using more than one `textarea` on your page, change the following line to match the one you’re after
+			 var $content = $('#md_content').text(),
+			     $preview = $('#test'),
+				 $code=$("#text"),
+			     converter = new Showdown.converter();
+			
+		
+			  var html=converter.makeHtml($content);
+			  $preview.html(html);
+			 // $code.text(html);
+		
+			
+		});
+		</script>
+		
+		<div class="container">
+			<h1>This is the show</h1>
+		<div class="clearfix"></div>
+		<div class="span16 row">
+		<div id="test" class="columns span12 offset2"></div>
+		<div id="md_content" style="display:none" class="columns span8"><%= content %></div>
+		</div>
+	</body>
+</html>
