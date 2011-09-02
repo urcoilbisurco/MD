@@ -6,62 +6,41 @@
 		<link rel="stylesheet" href="main.css">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
 		<script src="showdown.js" type="text/javascript"></script>
+		<script src="editor.js" type="text/javascript"></script>
 	</head>
 	<body>
 		
-		<script>
-		$(document).ready(function() {
-			/*
-			var textarea = $('#textarea');		
+		<div class="container row">
+		<div  class="form span12 row offset1 columns">
+			<form action="/save" method="post" id="editor_form">
+			<div class="textareaWrapper"><textarea id="textarea" name="content">	
+#For the past ten years, a former volunteer firefighter named Vincent Forras has turned 9/11 into a high profile career
+that has taken him on overseas trips, gotten him photographed with mayors, governors, princes, and pro athletes, had him interviewed by national television personalities, has yielded a range of financial benefits, and an endorsement from none other than Don Imus for U.S. Senate.
+Forras, now 54, of Ridgefield, Conn., certainly tells a compelling story. In an account he has told to dozens of reporters over the years, he claims that as a South Salem N.Y. volunteer firefighter, he rushed to Ground Zero on Sept. 11, 2001 and toiled there for weeks, leaving only once to celebrate his daughter's birthday. He claims he got trapped under the rubble for two hours and only a vision from God illuminated his escape, after he promised to devote his life to charity.
 
-			
-			textarea.keyup(function(event) {
-				var msg = textarea.attr('value');
-			  	$.ajax({
-				    type: 'POST',
-				    url: 'http://localhost:4000/try',
-					dataType: "jsonp",
-					jsonpCallback: "_testcb",
-				    data: { 
-				        'content': msg ,
+He goes on to say that he got sick from the air at the site almost immediately, and became desperately ill to the point where he could barely make it up the steps of his own house. He has many times been sought out by the media as a kind of spokesman for ailing responders.
 
-				    },
-				    success: function(data){
-						$("#text").text(data);
-						$("#test").html(data);
-							
-					}
+The problem is that while Forras's general account remains somewhat consistent, the details seem to change from interview to interview, and among former associates, there's no small amount of skepticism about his claims.
 
-				});
-			});
-			*/
-			 // When using more than one `textarea` on your page, change the following line to match the one you’re after
-			 var $textarea = $('#textarea'),
-			     $preview = $('#test'),
-				 $code=$("#text"),
-			     converter = new Showdown.converter();
-			
-			 $textarea.keyup(function() {
-			  var html=converter.makeHtml($textarea.val());
-			  $preview.html(html);
-			 // $code.text(html);
-			 }).trigger('keyup');
-	
-			
-		});
-		</script>
-		
-		<div class="container">
-		<div class="form span16">
-			<form action="/save" method="post">
-			<textarea id="textarea" name="content"></textarea>
-			<button type="submit" class="btn primary">save</button>
+"He was a phony," says Donald Hayde, a distinguished FDNY battalion chief with the elite Rescue battalion, "one of those guys who manipulate half-truths to put himself in a good light." In addition, several of his former colleagues at the South Salem fire house tell the Voice that they simply don't believe his story of being trapped.
+
+Forras, however, is just one of a range of people, companies, charities, and agencies who have found ways to benefit from one of the nation's worst disasters.
+The September 11, 2001 attacks have been a symbol of many things and many causes, but like the lavish, flag-draped rebuilding of the site, it has also been a vehicle for enrichment. From corporations to politicians to government officials to nonprofits to the security industry to publishers to the health industry (not to mention the incidents of outright fraud over the years), many people have found ways to profit from one of the nation's biggest disasters. 9/11 has created an economy all its own.
+
+
+
+			</textarea></div>
 			</form>
 		</div>
+		<div class="buttons span2 columns">
+			<div id="show" class="btn side_btn">Preview</div>
+			<div id="halfAndHalf" class="btn side_btn ">2/2</div>
+			<div id="submit" class="primary btn side_btn">save</div>
+		</div>
+		
 		<div class="clearfix"></div>
-		<div class="span16 row">
-		<div id="test" class="columns span8"></div>
-		<div id="text" class="columns span8"></div>
+		<div class="span12 offset1 row">
+			<div id="preview"></div>
 		</div>
 	</body>
 </html>
