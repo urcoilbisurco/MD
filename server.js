@@ -29,35 +29,17 @@ app.set('view options', {
 app.use(express.static(__dirname + '/public'));
 
 
-
-
 //routing
 
 app.post('/save', function(req, res){
-	var substring=req.body.content.substr(0, 10);
+	var substring=req.body.content.substr(0, 10) + (Date.now());
 	var encoded_string= (new Buffer(substring)).toString('base64');
-	console.log(encoded_string);
 	redis.set(encoded_string , req.body.content);
 	//res.send("the url is... " + __dirname + "/"+ encoded_string);
 	var url="/"+encoded_string;
 	res.redirect(url);
 })
 
-
-
-
-app.get('/show', function(req, res){
-	
-	redis.set("foo", "ciao");
-	var foo;
-	//la risposta è asincrona!!!
-	redis.get('foo',function(err, reply){
-		res.send(reply);
-		
-	});
-	
-	
-})
 app.get('/:url', function(req, res){
 	redis.get(req.params.url, function(err, reply){
 		res.render('show.ejs', { content: reply });
