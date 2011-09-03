@@ -38,16 +38,24 @@ html, body{
 	width:696px;
 	text-rendering: optimizeLegibility;
 	border-radius:5px;
+	box-shadow: 0 1px 5px rgba(0,0,0,1);
 
-	
+	background:url("img/handmadepaper.png");
 }
 
-#preview *{
+#preview *, #content *{
 	padding: 0 30px;
 }
-#preview p{
+#preview p, #content p{
 	font-size:20px !important;
 	line-height: 20px;
+}
+#preview * > *, #content * > *{
+	padding:0;
+}
+#preview a, #content a{
+	color:#B1B1B1;
+	text-decoration:underline;
 }
 .buttons{
 }
@@ -60,4 +68,24 @@ html, body{
 }
 .container{
 
+}
+
+
+/************ SHOW PART *************/
+#content{
+	background:url("img/handmadepaper.png");
+	padding:40px 0;
+	overflow-x: hidden;
+	overflow-y:scroll;
+	box-shadow: 0 1px 5px rgba(0,0,0,1);
+	width:696px;
+	text-rendering: optimizeLegibility;
+	border-radius:5px;
+}
+.twitter-share-button {
+ 	padding-right:0;
+	padding-left:0;
+	text-align:center;
+	margin-bottom:10px;
+	width:100% !important;
 }

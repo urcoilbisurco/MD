@@ -57,13 +57,4 @@ $(document).ready(function() {
 		},500);
 
 	});
-	    
-	
-	
-	
-	$("h2.trigger").css("cursor","pointer").toggle(function(){  
-	    $(this).addClass("active");  
-	  }, function () {  
-	  $(this).removeClass("active");  
-	});
 });

@@ -14,8 +14,7 @@
 			
 			 // When using more than one `textarea` on your page, change the following line to match the one you’re after
 			 var $content = $('#md_content').text(),
-			     $preview = $('#test'),
-				 $code=$("#text"),
+			     $preview = $('#content')
 			     converter = new Showdown.converter();
 			
 		
@@ -28,11 +27,27 @@
 		</script>
 		
 		<div class="container">
-			<h1>This is the show</h1>
+			
 		<div class="clearfix"></div>
 		<div class="span16 row">
-		<div id="test" class="columns span12 offset2"></div>
-		<div id="md_content" style="display:none" class="columns span8"><%= content %></div>
+		<div id="content" class="columns offset1 span12"></div>
+		<div id="side" class="columns span3">
+			<a href='/' class="btn side_btn">homepage</a>
+			<a href='/' class="btn side_btn">create a new text</a>
+			<a href="/tweet" class="btn side_btn" onClick="tweetpopup();return false;"rel="nofollow" data-count="none" data-via="urcoilbisurco">tweet</a>
+		
+		<script type="text/javascript">
+
+		function tweetpopup() {
+
+		window.open( "http://twitter.com/share?url=http://google.com&text=via%20@urcoilbisurco&count=none/", "tweet", "height=450,width=550,resizable=1" ) 
+
+		}
+
+		</script>
+	
 		</div>
+		
+		<div id="md_content" style="display:none" class=""><%= content %></div>
 	</body>
 </html>

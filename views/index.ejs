@@ -13,23 +13,19 @@
 		<div class="container row">
 		<div  class="form span12 row offset1 columns">
 			<form action="/save" method="post" id="editor_form">
-			<div class="textareaWrapper"><textarea id="textarea" name="content">	
-#For the past ten years, a former volunteer firefighter named Vincent Forras has turned 9/11 into a high profile career
-that has taken him on overseas trips, gotten him photographed with mayors, governors, princes, and pro athletes, had him interviewed by national television personalities, has yielded a range of financial benefits, and an endorsement from none other than Don Imus for U.S. Senate.
-Forras, now 54, of Ridgefield, Conn., certainly tells a compelling story. In an account he has told to dozens of reporters over the years, he claims that as a South Salem N.Y. volunteer firefighter, he rushed to Ground Zero on Sept. 11, 2001 and toiled there for weeks, leaving only once to celebrate his daughter's birthday. He claims he got trapped under the rubble for two hours and only a vision from God illuminated his escape, after he promised to devote his life to charity.
+			<div class="textareaWrapper"><textarea id="textarea" placeholder="Write here..." name="content"><% if (index) { %>#Welcome to [:sitename], a fast way to write something!
+###We have also _Markdown_ support, and you can use the preview or the 2/2 buttons to see your changes.
 
-He goes on to say that he got sick from the air at the site almost immediately, and became desperately ill to the point where he could barely make it up the steps of his own house. He has many times been sought out by the media as a kind of spokesman for ailing responders.
+you can also save the text, and share the link... the text will be optimized to be **iper-readable**. :)
 
-The problem is that while Forras's general account remains somewhat consistent, the details seem to change from interview to interview, and among former associates, there's no small amount of skepticism about his claims.
+#Try it yourself... write something here!
 
-"He was a phony," says Donald Hayde, a distinguished FDNY battalion chief with the elite Rescue battalion, "one of those guys who manipulate half-truths to put himself in a good light." In addition, several of his former colleagues at the South Salem fire house tell the Voice that they simply don't believe his story of being trapped.
+###What is Markdown?
+markdown is bla bla bla bla bla bla bla
 
-Forras, however, is just one of a range of people, companies, charities, and agencies who have found ways to benefit from one of the nation's worst disasters.
-The September 11, 2001 attacks have been a symbol of many things and many causes, but like the lavish, flag-draped rebuilding of the site, it has also been a vehicle for enrichment. From corporations to politicians to government officials to nonprofits to the security industry to publishers to the health industry (not to mention the incidents of outright fraud over the years), many people have found ways to profit from one of the nation's biggest disasters. 9/11 has created an economy all its own.
-
-
-
-			</textarea></div>
+###On what tecnologies is based this site?
+This site is built in [node.js](http://nodejs.org/), and all the data is saved on [redis](http://redis.io). We are hosted by [heroku](http://heroku.com)!
+<% }%></textarea></div>
 			</form>
 		</div>
 		<div class="buttons span2 columns">

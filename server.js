@@ -3,8 +3,10 @@ var sys  = require('sys');
 var fs   = require('fs');
 //var md = require("node-markdown").Markdown;
 
+
 //using express framework
 var express = require('express');
+var ejs = require('ejs');
 var app = express.createServer();
 
 //creating redis server
@@ -27,7 +29,7 @@ app.set('view options', {
   layout: false
 });
 app.use(express.static(__dirname + '/public'));
-
+app.set("view engine", "ejs");
 
 //routing
 
@@ -40,15 +42,29 @@ app.post('/save', function(req, res){
 	res.redirect(url);
 })
 
-app.get('/:url', function(req, res){
-	redis.get(req.params.url, function(err, reply){
-		res.render('show.ejs', { content: reply });
-	});	
+app.get('/', function(req, res){
+
+   res.render('index.ejs', 	{ index : true });
+
+});
+app.get('/new', function(req, res){
+	res.render('index.ejs', { index : false });
 });
 
-app.get('/', function(req, res){
-   res.render('index.ejs', { title: 'My Site' });
+app.get('/:url', function(req, res){
+	redis.get(req.params.url, function(err, reply){
+		if(reply!=null){
+			res.render('show.ejs', {content: reply});
+		} else {
+			res.redirect("/");
+		}
+	});	
+	
 });
+
+
+
+
 
 
 
